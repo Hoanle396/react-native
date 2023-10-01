@@ -1,7 +1,11 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { color } from '@/constants/color';
 import Icon from '@expo/vector-icons/Ionicons';
-import { Header, HeaderOptions, Layout } from '@react-navigation/elements';
+import {
+  Header as RNVHeader,
+  HeaderOptions,
+  Layout,
+} from '@react-navigation/elements';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Button from '../Button';
@@ -11,17 +15,14 @@ export interface HeaderProps extends HeaderOptions {
   leftBtnVariant?: 'skip' | 'close' | 'back';
   rightBtnVariant?: 'new' | 'calendar' | 'info' | 'search' | 'add' | 'home';
   onPressLeftButton?: () => void;
-  // onPressSkipButton?: () => void;
-  // onPressBackButton?: () => void;
   onPressRightButton?: () => void;
-  // filled up the rest of the props from @react-navigation/elements/src/Header/Header
   modal?: boolean;
   layout?: Layout;
   title: string | JSX.Element;
   subTitle?: string;
   headerTitleAlign?: 'left' | 'center';
 }
-const HeaderJP = React.memo(function HeaderJP({
+const Header = React.memo(function Header({
   variant,
   leftBtnVariant,
   rightBtnVariant,
@@ -99,7 +100,7 @@ const HeaderJP = React.memo(function HeaderJP({
   if (!headerRight && onPressRightButton && rightBtnVariant === 'calendar') {
     headerRight = () => (
       <TouchableOpacity onPress={onPressRightButton}>
-        <Icon name="calendar" size={24} fill={elementColor} />
+        <Icon name="calendar-outline" size={24} fill={elementColor} />
       </TouchableOpacity>
     );
   }
@@ -107,7 +108,7 @@ const HeaderJP = React.memo(function HeaderJP({
   if (!headerRight && onPressRightButton && rightBtnVariant === 'info') {
     headerRight = () => (
       <TouchableOpacity onPress={onPressRightButton}>
-        <Icon name="information-circle" size={24} fill={elementColor} />
+        <Icon name="information-circle-outline" size={24} fill={elementColor} />
       </TouchableOpacity>
     );
   }
@@ -131,14 +132,14 @@ const HeaderJP = React.memo(function HeaderJP({
   if (!headerRight && onPressRightButton && rightBtnVariant === 'home') {
     headerRight = () => (
       <TouchableOpacity onPress={onPressRightButton}>
-        <Icon name="home" size={24} fill={elementColor} />
+        <Icon name="home-outline" size={24} fill={elementColor} />
       </TouchableOpacity>
     );
   }
   const isStringTitle = typeof title === 'string';
 
   return (
-    <Header
+    <RNVHeader
       headerTitle={({ children }) => {
         return (
           <View>
@@ -168,7 +169,7 @@ const HeaderJP = React.memo(function HeaderJP({
   );
 });
 
-export default HeaderJP;
+export default Header;
 
 const styles = StyleSheet.create({
   header: {
