@@ -10,4 +10,15 @@ export const color = {
     dark: '#141414',
   },
   white: '#FFFFFF',
+  success: {
+    main: '#30CD60',
+  },
+  error: {
+    main: '#DA4343',
+    light: '#FF4D49',
+  },
+  warning: {
+    main: '#FFA940',
+    light: '#FDB528',
+  },
 };
