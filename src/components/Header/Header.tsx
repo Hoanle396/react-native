@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { color } from '@/constants/color';
 import Icon from '@expo/vector-icons/Ionicons';
+import { AntDesign } from '@expo/vector-icons';
 import {
   Header as RNVHeader,
   HeaderOptions,
@@ -63,7 +64,7 @@ const Header = React.memo(function Header({
   if (!headerLeft && onPressLeftButton && leftBtnVariant === 'back') {
     headerLeft = () => (
       <TouchableOpacity onPress={onPressLeftButton}>
-        <Icon name="md-arrow-back" size={24} color={elementColor} />
+        <AntDesign name="left" size={20} color={elementColor} />
       </TouchableOpacity>
     );
   }

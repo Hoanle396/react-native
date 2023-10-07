@@ -169,10 +169,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 38,
+    gap: 52,
     width: '100%',
     backgroundColor: color.white,
-    marginTop: 53,
+    marginTop: 42,
   },
   flexOne: {
     flex: 1,
