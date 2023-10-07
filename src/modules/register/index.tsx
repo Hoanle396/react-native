@@ -1,6 +1,7 @@
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import { color } from '@/constants/color';
+import { useToggle } from '@/hooks/useToggle';
 import { FCC } from '@/types';
 import { RootStackRoute } from '@/types/navigation';
 import { Entypo, Fontisto } from '@expo/vector-icons';
@@ -12,10 +13,12 @@ import CheckBox from 'react-native-check-box';
 type Props = {};
 
 const Register: FCC<Props> = ({}) => {
+  const [toggle, onToggle] = useToggle();
+  const [toggleConfirm, onToggleConfirm] = useToggle();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackRoute, 'register'>>();
   const onBack = () => {
-    navigation.canGoBack && navigation.goBack();
+    navigation.canGoBack() && navigation.goBack();
   };
   return (
     <>
@@ -61,19 +64,30 @@ const Register: FCC<Props> = ({}) => {
             </Text>
             <TextInput
               placeholder="Nhập mật khẩu"
-              keyboardType="visible-password"
-              secureTextEntry
-              clearButtonMode="never"
-              textContentType="password"
-              returnKeyType="go"
+              // keyboardType={toggle ? 'visible-password' : 'default'}
+              // secureTextEntry
+              // clearButtonMode="never"
+              // textContentType="password"
+              // returnKeyType="go"
               style={styles.input}
             />
-            <Entypo
-              name="eye"
-              style={styles.eyeButton}
-              size={24}
-              color={color.text.main}
-            />
+            {toggle ? (
+              <Entypo
+                name="eye"
+                style={styles.eyeButton}
+                size={24}
+                onPress={onToggle}
+                color={color.text.main}
+              />
+            ) : (
+              <Entypo
+                name="eye-with-line"
+                style={styles.eyeButton}
+                size={24}
+                onPress={onToggle}
+                color={color.text.main}
+              />
+            )}
             <View style={styles.dividerLine} />
           </View>
           <View style={styles.formRegister}>
@@ -90,12 +104,23 @@ const Register: FCC<Props> = ({}) => {
               returnKeyType="go"
               style={styles.input}
             />
-            <Entypo
-              name="eye"
-              style={styles.eyeButton}
-              size={24}
-              color={color.text.main}
-            />
+            {toggleConfirm ? (
+              <Entypo
+                name="eye"
+                style={styles.eyeButton}
+                size={24}
+                onPress={onToggleConfirm}
+                color={color.text.main}
+              />
+            ) : (
+              <Entypo
+                name="eye-with-line"
+                style={styles.eyeButton}
+                size={24}
+                onPress={onToggleConfirm}
+                color={color.text.main}
+              />
+            )}
             <View style={styles.dividerLine} />
           </View>
           <View style={styles.note}>
@@ -144,10 +169,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 33,
+    gap: 38,
     width: '100%',
     backgroundColor: color.white,
-    marginTop: 43,
+    marginTop: 53,
   },
   flexOne: {
     flex: 1,
