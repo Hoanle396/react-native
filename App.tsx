@@ -11,32 +11,30 @@ function App(): JSX.Element {
   const Stack = createNativeStackNavigator<RootStackRoute>();
 
   return (
-    <>
-      <NavigationContainer>
-        <StatusBar
-          translucent
-          barStyle="light-content"
-          backgroundColor={color.primary}
+    <NavigationContainer>
+      <StatusBar
+        translucent
+        barStyle="light-content"
+        backgroundColor={color.primary}
+      />
+      <Stack.Navigator initialRouteName="login">
+        <Stack.Screen
+          name="home"
+          options={{ header: () => null }}
+          component={HomeBottomTab}
         />
-        <Stack.Navigator initialRouteName="login">
-          <Stack.Screen
-            name="home"
-            options={{ header: () => null }}
-            component={HomeBottomTab}
-          />
-          <Stack.Screen
-            name="login"
-            options={{ header: () => null }}
-            component={Login}
-          />
-          <Stack.Screen
-            name="register"
-            options={{ header: () => null }}
-            component={Register}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
+        <Stack.Screen
+          name="login"
+          options={{ header: () => null }}
+          component={Login}
+        />
+        <Stack.Screen
+          name="register"
+          options={{ header: () => null }}
+          component={Register}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

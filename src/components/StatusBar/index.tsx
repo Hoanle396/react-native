@@ -17,7 +17,7 @@ const StatusBar: FC<StatusBarProps> = ({ ...props }) => {
 export default StatusBar;
 const styles = StyleSheet.create({
   StatusBar: {
-    height: 30.5,
+    height: 39,
     backgroundColor: color.primary,
   },
 });

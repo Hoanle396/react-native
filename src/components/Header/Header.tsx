@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import { color } from '@/constants/color';
 import Icon from '@expo/vector-icons/Ionicons';
 import { AntDesign } from '@expo/vector-icons';
