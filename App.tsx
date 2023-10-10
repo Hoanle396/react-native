@@ -2,6 +2,7 @@ import StatusBar from '@/components/StatusBar';
 import { color } from '@/constants/color';
 import Login from '@/modules/login';
 import Register from '@/modules/register';
+import HomeBottomTab from '@/navigations/HomeBottomTab';
 import { RootStackRoute } from '@/types/navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -18,6 +19,11 @@ function App(): JSX.Element {
           backgroundColor={color.primary}
         />
         <Stack.Navigator initialRouteName="login">
+          <Stack.Screen
+            name="home"
+            options={{ header: () => null }}
+            component={HomeBottomTab}
+          />
           <Stack.Screen
             name="login"
             options={{ header: () => null }}

@@ -64,11 +64,11 @@ const Register: FCC<Props> = ({}) => {
             </Text>
             <TextInput
               placeholder="Nhập mật khẩu"
-              // keyboardType={toggle ? 'visible-password' : 'default'}
-              // secureTextEntry
-              // clearButtonMode="never"
-              // textContentType="password"
-              // returnKeyType="go"
+              keyboardType={toggle ? 'visible-password' : 'default'}
+              secureTextEntry
+              clearButtonMode="never"
+              textContentType="password"
+              returnKeyType="go"
               style={styles.input}
             />
             {toggle ? (

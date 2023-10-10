@@ -17,5 +17,6 @@ module.exports = {
       },
     ],
     'no-console': 'warn',
+    'react/no-unstable-nested-components': 'off',
   },
 };

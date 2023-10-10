@@ -13,9 +13,13 @@ type Props = {};
 const Login: FCC<Props> = ({}) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackRoute, 'login'>>();
+
   const onRegister = () => {
     navigation.navigate('register');
   };
+
+  const onLogin = () => navigation.navigate('home');
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -67,7 +71,9 @@ const Login: FCC<Props> = ({}) => {
           </View>
         </View>
         <View style={styles.actionButton}>
-          <Button variants="contained">Đăng Nhập</Button>
+          <Button variants="contained" onPress={onLogin}>
+            Đăng Nhập
+          </Button>
           <Button variants="outlined" onPress={onRegister}>
             Đăng kí
           </Button>
